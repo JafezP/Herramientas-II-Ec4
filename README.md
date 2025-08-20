@@ -32,9 +32,37 @@ Aplicación bancaria digital que permite gestionar cuentas, visualizar saldos y 
 ### Clonar repositorio
 ```bash
 git clone https://github.com/DDR144/-Frontend-IdatBank.git
-
-## 🚀 Instalación y Ejecución
+```
 
 ### Entrar en la carpeta del proyecto
 ```bash
 cd -Frontend-IdatBank
+```
+
+### Instalar dependencias
+```bash
+npm install
+```
+
+### Ejecutar servidor de desarrollo
+```bash
+npm run dev
+```
+
+### 🌐 La aplicación estará disponible en http://localhost:5173
+
+## 📂 Estructura del Proyecto
+
+```bash
+frontend/
+├─ src/pages/       → Pantallas principales (Login, Home, Transferir)
+├─ src/api/         → Configuración de Axios
+├─ src/assets/      → Recursos estáticos
+```
+
+
+
+
+
+
+
