@@ -1,7 +1,7 @@
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
-  const isAuth = !!localStorage.getItem("usuario");
+  const isAuth = !!localStorage.getItem('usuario');
   return isAuth ? children : <Navigate to="/login" />;
 };
 

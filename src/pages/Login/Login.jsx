@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import Header from "../../components/Header";
-import axiosInstance from "../../api/axios";
-import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import Header from '../../components/Header';
+import axiosInstance from '../../api/axios';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,29 +15,29 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axiosInstance.post("api/usuarios/login", {
+      const response = await axiosInstance.post('api/usuarios/login', {
         email: data.usuario,
         contraseña: data.contraseña,
       });
 
-      localStorage.setItem("usuario", JSON.stringify(response.data));
+      localStorage.setItem('usuario', JSON.stringify(response.data));
 
       Swal.fire({
-        icon: "success",
-        title: "Bienvenido",
+        icon: 'success',
+        title: 'Bienvenido',
         text: `¡Hola ${response.data.nombre}!`,
         showConfirmButton: false,
         timer: 1500,
       });
 
       setTimeout(() => {
-        navigate("/");
+        navigate('/');
       }, 1500);
     } catch (error) {
       Swal.fire({
-        icon: "error",
-        title: "Error al iniciar sesión",
-        text: error.response?.data || "Ocurrió un error inesperado",
+        icon: 'error',
+        title: 'Error al iniciar sesión',
+        text: error.response?.data || 'Ocurrió un error inesperado',
       });
     }
   };
@@ -47,12 +47,8 @@ const Login = () => {
       <Header />
 
       <main className="flex justify-center items-center px-4 bg-gray-50">
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="w-full max-w-md"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md">
           <div className="border border-gray-200 rounded-md shadow mt-20 p-6 sm:p-10 bg-white">
-            
             {/* Logo */}
             <div className="flex justify-center mb-6">
               <img
@@ -67,7 +63,7 @@ const Login = () => {
               <label className="pt-2 pb-2 text-xs font-semibold">Usuario</label>
               <input
                 type="text"
-                {...register("usuario", { required: true })}
+                {...register('usuario', { required: true })}
                 className="pb-2 border-b border-b-gray-500 text-gray-500 focus:outline-none text-sm"
               />
               {errors.usuario && (
@@ -77,10 +73,12 @@ const Login = () => {
 
             {/* Contraseña */}
             <div className="grid grid-cols-1 mt-4">
-              <label className="pt-2 pb-2 text-xs font-semibold">Contraseña</label>
+              <label className="pt-2 pb-2 text-xs font-semibold">
+                Contraseña
+              </label>
               <input
                 type="password"
-                {...register("contraseña", { required: true })}
+                {...register('contraseña', { required: true })}
                 className="pb-2 border-b border-b-gray-500 text-gray-500 focus:outline-none text-sm"
               />
               {errors.contraseña && (

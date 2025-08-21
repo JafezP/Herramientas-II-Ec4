@@ -1,5 +1,5 @@
-import Lottie from "lottie-react";
-import animationData from "../../assets/Robot 404 Error.json";
+import Lottie from 'lottie-react';
+import animationData from '../../assets/Robot 404 Error.json';
 
 const NotFound = () => {
   return (

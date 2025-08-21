@@ -1,7 +1,7 @@
-import { ChevronRight, Pencil, Eye, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "../api/axios";
+import { ChevronRight, Pencil, Eye, Menu } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from '../api/axios';
 
 const Sidebar = () => {
   const [showBalance, setShowBalance] = useState(false);
@@ -14,14 +14,14 @@ const Sidebar = () => {
   useEffect(() => {
     const fetchAccounts = async () => {
       try {
-        const usuario = JSON.parse(localStorage.getItem("usuario"));
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
         if (!usuario?.id) return;
 
         const usuarioId = usuario.id;
         const response = await axios.get(`api/cuentas/usuario/${usuarioId}`);
         setAccounts(response.data);
       } catch (error) {
-        console.error("Error al cargar las cuentas del usuario", error);
+        console.error('Error al cargar las cuentas del usuario', error);
       }
     };
     fetchAccounts();
@@ -40,7 +40,7 @@ const Sidebar = () => {
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 h-full bg-white w-72 border-r border-gray-200 p-4 z-40 transform transition-transform duration-300
-          ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:static lg:block`}
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static lg:block`}
       >
         <div className="p-4 border-b border-gray-200">
           <h2 className="text-lg font-semibold">Mis productos</h2>
@@ -57,14 +57,14 @@ const Sidebar = () => {
                 {showBalance ? (
                   (() => {
                     const freeAccount = accounts.find(
-                      (acc) => acc.tipoCuenta === "Ahorros"
+                      (acc) => acc.tipoCuenta === 'Ahorros'
                     );
                     return freeAccount
-                      ? Number(freeAccount.saldo).toLocaleString("es-PE", {
-                          style: "currency",
-                          currency: "PEN",
+                      ? Number(freeAccount.saldo).toLocaleString('es-PE', {
+                          style: 'currency',
+                          currency: 'PEN',
                         })
-                      : "No disponible";
+                      : 'No disponible';
                   })()
                 ) : (
                   <span className="font-bold">******</span>
@@ -84,14 +84,14 @@ const Sidebar = () => {
                 {showBalance ? (
                   (() => {
                     const sueldoAccount = accounts.find(
-                      (acc) => acc.tipoCuenta === "Sueldo"
+                      (acc) => acc.tipoCuenta === 'Sueldo'
                     );
                     return sueldoAccount
-                      ? Number(sueldoAccount.saldo).toLocaleString("es-PE", {
-                          style: "currency",
-                          currency: "PEN",
+                      ? Number(sueldoAccount.saldo).toLocaleString('es-PE', {
+                          style: 'currency',
+                          currency: 'PEN',
                         })
-                      : "No disponible";
+                      : 'No disponible';
                   })()
                 ) : (
                   <span className="font-bold">******</span>
@@ -126,11 +126,11 @@ const Sidebar = () => {
       </aside>
 
       {isOpen && (
-      <div
-  className="fixed inset-0 bg-black/30 z-30 cursor-pointer lg:hidden"
-  onClick={toggleSidebar}
-/>
-    )}
+        <div
+          className="fixed inset-0 bg-black/30 z-30 cursor-pointer lg:hidden"
+          onClick={toggleSidebar}
+        />
+      )}
     </>
   );
 };

@@ -5,14 +5,13 @@ import {
   CircleDollarSign,
   Wallet,
   ShoppingCart,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div className="px-4 sm:px-10 py-6 min-h-screen ">
       <div className="grid grid-cols-1 lg:grid-cols-2 pl-10 pr-10 gap-20">
-        
         {/* Sección Quiero */}
         <div>
           <h1 className="text-lg font-black mb-4">Quiero</h1>
@@ -99,7 +98,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
